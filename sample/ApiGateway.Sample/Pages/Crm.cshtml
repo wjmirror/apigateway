@@ -1,0 +1,29 @@
+﻿@page 
+@model ApiGateway.Sample.Pages.CrmModel
+@{
+    ViewData["Title"] = "CRM Api";
+}
+
+<style type="text/css">
+    div[aria-describedby='modalConfirmCrmProspect'] div .ui-dialog-titlebar-close {
+        display:none!important;
+    }
+    input[type=checkbox] {
+        border: none;
+    }
+    input[type=radio] {
+        border: none;
+    }
+</style>
+<form>
+<div class="text-center">
+    <span>MS CRM Account Number</span><input type="text" id="txtAccountNumber" asp-for="AccountNumber" />
+    <hr />
+    <input type="button" onclick="javascript:GetCustomerInClient();" value="Get (in Client)" /> 
+    <input type="submit" value="Get (In Server)" /><br />
+    <span>Note: Please go to cs file OnGet method, change the windows user name and password when you use "Get (In Server)".</span>
+    <hr/>
+    <textarea id="txtResult" asp-for="Result" ></textarea>
+</div>
+</form>
+<script src="~/js/crm.js" asp-append-version="true"></script>
